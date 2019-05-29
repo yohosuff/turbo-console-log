@@ -39,7 +39,7 @@ function message(
   );
   const spacesBeforeMsg = spaces(document, logMessageLine(document, lineOfSelectedVar, selectedVar) - 1, tabSize);
   const semicolon = addSemicolonInTheEnd ? ";" : "";
-  const debuggingMsg = `console.log(${quote}${logMessagePrefix}: ${classThatEncloseTheVar}${funcThatEncloseTheVar}${selectedVar}${quote}, ${selectedVar})${semicolon}`;
+  const debuggingMsg = `console.log(${quote}${funcThatEncloseTheVar}${quote});`;
   if (wrapLogMessage) {
     // 16 represents the length of console.log("");
     const wrappingMsg = `console.log(${quote}${logMessagePrefix}: ${"-".repeat(
@@ -162,7 +162,7 @@ function enclosingBlockName(document, lineOfSelectedVar, blockType) {
             lineOfSelectedVar <
               blockClosingBraceLineNum(document, currentLineNum)
           ) {
-            return `${lineCodeProcessing.className(currentLineText)} -> `;
+            return `${lineCodeProcessing.className(currentLineText)}`;
           }
         }
         break;
@@ -177,7 +177,7 @@ function enclosingBlockName(document, lineOfSelectedVar, blockType) {
               blockClosingBraceLineNum(document, currentLineNum)
           ) {
             if (lineCodeProcessing.functionName(currentLineText).length !== 0) {
-              return `${lineCodeProcessing.functionName(currentLineText)} -> `;
+              return `${lineCodeProcessing.functionName(currentLineText)}`;
             }
             return "";
           }

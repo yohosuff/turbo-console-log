@@ -18,10 +18,7 @@ function activate(context) {
     const selectedVar = document.getText(selection);
     const lineOfSelectedVar = selection.active.line;
     // Check if the selection line is not the last one in the document and the selected variable is not empty
-    if (
-      !(lineOfSelectedVar === document.lineCount - 1) &&
-      selectedVar.trim().length !== 0
-    ) {
+    if (!(lineOfSelectedVar === document.lineCount - 1)) {
       editor.edit(editBuilder => {
         const config = vscode.workspace.getConfiguration("turboConsoleLog");
         const wrapLogMessage = config.wrapLogMessage || false;

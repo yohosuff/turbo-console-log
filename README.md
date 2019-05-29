@@ -1,3 +1,14 @@
+## Notes
+
+---
+
+Run this to package the extension as a VSIX file.
+
+```
+npm install -g vsce
+vsce package
+```
+
 ## Main Functionality
 
 ---
